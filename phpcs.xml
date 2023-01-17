@@ -41,7 +41,7 @@
 	<arg name="colors" />
 
 	<!-- Paraller file checking -->
-	<arg name="parallel" value="20" />
+	<arg name="parallel" value="10" />
 
     <!-- Show sniff codes in all reports -->
     <arg value="ns" />
@@ -53,7 +53,7 @@
 	-->
 
 	<!-- Minimum version of PHP required to run the plugin.  -->
-	<config name="testVersion" value="7.2-" />
+	<config name="testVersion" value="5.6-" />
 
 	<!-- Check PHP version compatibility. -->
 	<rule ref="PHPCompatibility" />
@@ -71,9 +71,6 @@
 	<rule ref="Generic.Arrays.DisallowShortArraySyntax">
 		<exclude name="Generic.Arrays.DisallowShortArraySyntax.Found" />
 	</rule>
-
-	<!-- Generic.Commenting -->
-	<rule ref="Generic.Commenting" />
 
 	<!-- Generic.CodeAnalysis -->
 	<rule ref="Generic.CodeAnalysis" />
@@ -143,6 +140,7 @@
     <config name="minimum_supported_wp_version" value="5.2" />
 
     <!-- WordPress; WordPress Standard, Security, Files, Docs, Extra Everything -->
+    <rule ref="WordPress" />
     <rule ref="WordPress" />
 
 	<!-- Allow short ternary (codition ? true : false) -->
