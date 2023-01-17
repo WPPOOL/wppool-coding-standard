@@ -5,9 +5,9 @@
 	@package wp-coding-standard
 	@version 1.0.0
 -->
-<ruleset name="WordPressCodingStandard">
+<ruleset name="WPPOOLCS">
 
-    <description>WordPress Coding Standard</description>
+    <description>WordPress Coding Standard for WPPOOL</description>
 
 	<!-- Exclusions  -->
     <exclude-pattern>node_modules/*</exclude-pattern>
