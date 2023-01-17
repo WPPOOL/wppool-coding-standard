@@ -68,6 +68,9 @@ The location in Windows 10 maybe `C:\Users\{user_name}\AppData\Roaming\Composer\
 }
 ```
 
+## Modify excludes and text-domain
+You must modify the exclude paths and text-domain before you start.
+
 # First report
 ```bash
 phpcs .
