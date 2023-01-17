@@ -85,6 +85,28 @@ or
 phpcs . > report.txt
 ```
 
+# PHPCBF Hacks!
+If you want to use phpcbf (php code beautifier) for VSCode or from CLI with WordPress STandard, you can follow this hacks
+1. Copy `phpcs.xml` file to root of your machine (or somewhere you trust). 
+2. Modify the VSCode Settings for a little bit
+```json
+{
+    "phpcs.enable": true,
+    "phpcs.executablePath": "PHPCS_BIN_PATH",
+	"phpcs.standard": "/path/to/your/phpcs.xml",
+    "phpcbf.documentFormattingProvider": true,
+    "phpcbf.onsave": false,
+    "phpcbf.executablePath":"PHPCBF_BIN_PATH",
+    "phpcbf.standard": "/path/to/your/phpcs.xml",
+    "phpcs.showSources": true,
+    "[php]": {
+        "editor.defaultFormatter": "persoderlind.vscode-phpcbf"
+	}
+},
+```
+You can use directly phps.xml path instead of the standard name as configuration.
+
+Now you can open a PHP file and right click on mouse -> `Format Document` to format the php file.
 ### Don't forget to add report.txt to project's `.gitignore`
 
 ## Contributions
