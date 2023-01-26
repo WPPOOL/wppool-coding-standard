@@ -7,6 +7,7 @@ Coding Standard for WPPOOL WordPress Plugins and Themes.
 2. [**Composer**](https://getcomposer.org/) / Homebrew / Curl
 
 <br>
+
 ### Installation guidelines Step by Step
 
 # Step 1 : Install PHP_CodeSniffer
