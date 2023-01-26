@@ -1,24 +1,22 @@
 <?xml version="1.0" ?>
 <!--
-	WordPress Coding Standard
+	WPPOOL Coding Standard
 
-	@package wp-coding-standard
+	@package WPPOOL_CS
 	@version 1.0.0
 -->
 <ruleset name="WPPOOLCS">
 
-    <description>WordPress Coding Standard for WPPOOL</description>
+    <description>WPPOOL Coding Standard</description>
 
-	<!-- Exclusions  -->
-    <exclude-pattern>node_modules/*</exclude-pattern>
-	<exclude-pattern>assets/*</exclude-pattern>
-	<exclude-pattern>languages/*</exclude-pattern>
-	<exclude-pattern>src/*</exclude-pattern>
+	<!-- Excludes  -->
+	<exclude-pattern>*/node_modules/*</exclude-pattern>
+	<exclude-pattern>*/vendor/*</exclude-pattern>
 
 	<!-- Text-domain -->
 	<rule ref="WordPress.WP.I18n">
 		<properties>-
-			<property name="text_domain" type="array" value="wp-dark-mode" />
+			<property name="text_domain" type="array" value="wppool-plugin" />
 		</properties>
 	</rule>
 
@@ -41,7 +39,7 @@
 	<arg name="colors" />
 
 	<!-- Paraller file checking -->
-	<arg name="parallel" value="10" />
+	<arg name="parallel" value="20" />
 
     <!-- Show sniff codes in all reports -->
     <arg value="ns" />
@@ -56,7 +54,7 @@
 	<config name="testVersion" value="5.6-" />
 
 	<!-- Check PHP version compatibility. -->
-	<rule ref="PHPCompatibility" />
+	<!-- <rule ref="PHPCompatibility" /> -->
 
 	<!-- Allow tab indent  -->
 	<rule ref="Generic.WhiteSpace.DisallowTabIndent">
@@ -71,6 +69,9 @@
 	<rule ref="Generic.Arrays.DisallowShortArraySyntax">
 		<exclude name="Generic.Arrays.DisallowShortArraySyntax.Found" />
 	</rule>
+
+	<!-- Generic.Commenting -->
+	<rule ref="Generic.Commenting" />
 
 	<!-- Generic.CodeAnalysis -->
 	<rule ref="Generic.CodeAnalysis" />
@@ -140,8 +141,10 @@
     <config name="minimum_supported_wp_version" value="5.2" />
 
     <!-- WordPress; WordPress Standard, Security, Files, Docs, Extra Everything -->
-    <rule ref="WordPress" />
-    <rule ref="WordPress" />
+    <rule ref="WordPress" /> 
+    <rule ref="WordPress-Core" /> 
+    <rule ref="WordPress-Docs" /> 
+    <rule ref="WordPress-Extra" /> 
 
 	<!-- Allow short ternary (codition ? true : false) -->
 	<rule ref="WordPress.PHP.DisallowShortTernary.Found" />
@@ -158,9 +161,9 @@
 	</rule>
 
 	<!-- 
-		####                     		      ####
-		#### End of WordPress Coding Standard ####
-		####                    		      ####
+		####                     		   ####
+		#### End of WPPOOL Coding Standard ####
+		####                    		   ####
 	-->
 
 </ruleset>

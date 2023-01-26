@@ -1,37 +1,110 @@
-# wppool-coding-standard
+# WPPOOL Coding Standard
 Coding Standard for WPPOOL WordPress Plugins and Themes.
 
-# Get Started
 
-### Install dependencies (Globally)
-- Install [PHP_CodeSniffer](https://github.com/squizlabs/PHP_CodeSniffer)
-- Install [WordPress Coding Standard](https://github.com/WordPress/WordPress-Coding-Standards) (Install from GitHub Master branch)
-- Install [PHPCompatibility](https://github.com/PHPCompatibility/PHPCompatibility)
+## Prerequisites
+1. **PHP 7.4***
+2. [**Composer**](https://getcomposer.org/) / Homebrew / Curl
 
-### Add paths to PHP_CodeSniffer configuration
-You can set multiple paths at a time
+<br>
+### Installation guidelines Step by Step
+
+# Step 1 : Install PHP_CodeSniffer
+
+### Linux
+```bash
+curl -OL https://squizlabs.github.io/PHP_CodeSniffer/phpcs.phar
+curl -OL https://squizlabs.github.io/PHP_CodeSniffer/phpcbf.phar
+```
+### MacOS
+```bash
+brew doctor
+brew install php-code-sniffer
+```
+### Windows
+```bash
+composer global require "squizlabs/php_codesniffer=*"
+```
+
+#### Run this command to verify installation.
+```bash
+phpcs -i
+```
+If it shows like this
+
+`The installed coding standards are PSR1, Zend, PEAR, PSR12, Squiz, MySource, PSR2`
+
+Means, you have installed PHP_CodeSniffer successfully.
+
+<br>
+
+# Step 2 : Install WordPress Coding Standard
+Go to your global working directory (such as `cd /Users/$USER/` or `cd ~` in Linux, MacOS and `cd C:\Users\%USERNAME%`) open Terminal/Command Prompt and run this command
+```bash
+ git clone -b master https://github.com/WordPress/WordPress-Coding-Standards.git wpcs
+```
+
+<br>
+
+# Step 3 : Install PHPCompatibility
+Go to your global working directory (such as `cd /Users/$USER/` or `cd ~` in Linux, MacOS and `cd C:\Users\%USERNAME%`) open Terminal/Command Prompt and run this command
+
+```bash
+git clone https://github.com/PHPCompatibility/PHPCompatibility.git PHPCompatibility
+```
+
+<br>
+
+# Step 4 : Configure Paths
+ 
+Add WordPress Coding Standard and PHPCompatibility paths to PHP_CodeSniffer.
+
+Basic format
 ```bash
 phpcs --config-set installed_paths /path/to/wpcs,/path/to/PHPCompatibility
 ```
 
-Now test your installation
+WPCS and PHPCompatibility path will be different on different machines. So try finding the exact location of these two packages. 
+
+The home directory should be `/Users/$USER` in Linux, MacOS.
+And `C:\\Users\\%USERNAME%` in Windows. 
+
+So
+
+### Linux / MacOS
 ```bash
-phpcs -i
+phpcs --config-set installed_paths /Users/$USER/wpcs,/Users/$USER/PHPCompatibility
 ```
 
-If it shows like bellow, then you are GOOD TO GO
+### Windows
+```bash
+phpcs --config-set installed_paths C:\\Users\\%USERNAME%\\wpcs,C:\\Users\\%USERNAME%\\PHPCompatibility
+```
 
-<code>The installed coding standards are PSR1, Zend, PEAR, PSR12, Squiz, MySource, PSR2, WordPress, WordPress-Core, WordPress-Docs, WordPress-Extra and PHPCompatibility
-</code>
+#### Check installation
+```
+phpcs -i
+```
+If it shows like this
 
-# Configurating VSCode
-1. Go to Settings.json (Settings -> Edit in Settings.json)
-2. Add this snippet to your JSON file
+`The installed coding standards are PSR1, Zend, PEAR, PSR12, Squiz, MySource, PSR2, WordPress, WordPress-Core, WordPress-Docs, WordPress-Extra and PHPCompatibility`
+
+Then you have successfully installed WordPress Coding Standard and PHPCompatibility
+
+<br>
+
+# Step 5 : Configure VSCode
+### 1. Install PHPCS [VSCode Extension](https://marketplace.visualstudio.com/items?itemName=shevaua.phpcs)
+- Launch VS Code Quick Open (Ctrl+P), paste the following command, and press enter.
+- `ext install shevaua.phpcs`
+  
+### 2. Modify Settings
+- Go to Settings.json (Settings -> Edit in Settings.json)
+- Add this snippet to your JSON file **(Modify first)**
 ```json
-{
     "phpcs.enable": true,
     "phpcs.executablePath": "PHPCS_BIN_PATH",
-	"phpcs.standard": "WordPress",
+    "phpcs.standard": "WordPress",
     "phpcbf.documentFormattingProvider": true,
     "phpcbf.onsave": false,
     "phpcbf.executablePath":"PHPCBF_BIN_PATH",
@@ -40,26 +113,33 @@ If it shows like bellow, then you are GOOD TO GO
     "[php]": {
         "editor.defaultFormatter": "persoderlind.vscode-phpcbf"
 	}
-},
 ```
 
-### NOTE: The `PHPCS_BIN_PATH` is relative, you have to change it. To know the absolute path of PHPCS on your local machine, follow this command
+### `PHPCS_BIN_PATH` and `PHPCBF_BIN_PATH` is different on different machine. So you have to find the right path of these files.
+
+### Linux / MacOS
 ```bash
 which phpcs
-```
-and
-```bash
+# Output : /usr/bin/phpcs
 which phpcbf
+# Output : /usr/bin/phpcbf
 ```
-On example, I used Linux (almost same for Mac).
 
-The location in Windows 10 maybe `C:\Users\{user_name}\AppData\Roaming\Composer\vendor\bin\
-`
+### Windows
+```bash
+where phpcs
+# or
+where phpcbf
+```
+If you have installed PHP_CodeSniffer using composer, your default path should be `C:\Users\%USERNAME%\AppData\Roaming\Composer\phpcs` and `C:\Users\%USERNAME%\AppData\Roaming\Composer\phpcbf`
 
-3. Install PHPCS (shevaua.phpcs) VSCode Extention
-# Add WPCS to your project
-1. Create a file named `phpcs.xml` at the root of your project.
-2. [Optional] Add these commands to your project
+<br>
+
+# Step 6 : Add WPCS to your project
+1. Open your project in VSCode and copy the `phpcs.xml` file to root of your project.
+2. Modify `Excludes` sections as you need
+3. Update `text-domain` value in **19** line
+4. [Optional] Add these commands to your project (package.json or composer.json)
    
 ```json
 { 
@@ -67,16 +147,14 @@ The location in Windows 10 maybe `C:\Users\{user_name}\AppData\Roaming\Composer\
 	"php-format" : "phpcbf ."
 }
 ```
+<br>
 
-## Modify excludes and text-domain
-You must modify the exclude paths and text-domain before you start.
-
-# First report
+## Run PHPCS!
 ```bash
 phpcs .
 ```
 
-To save all report to a file, type
+To save all report to a file `report.txt`, type and hit enter
 ```bash
 php-report
 ```
@@ -85,15 +163,19 @@ or
 phpcs . > report.txt
 ```
 
-# PHPCBF Hacks!
-If you want to use phpcbf (php code beautifier) for VSCode or from CLI with WordPress STandard, you can follow this hacks
+### Well done. You have successfully installed WPCS in your project. Now you may continue if you want to do more advanced thing with that.
+<br>
+
+# Use PHPCBF Globally
+If you want to use phpcbf (php code beautifier) for VSCode or from CLI with WordPress Standard, you can follow this hacks.
+
 1. Copy `phpcs.xml` file to root of your machine (or somewhere you trust). 
 2. Modify the VSCode Settings for a little bit
 ```json
 {
     "phpcs.enable": true,
     "phpcs.executablePath": "PHPCS_BIN_PATH",
-	"phpcs.standard": "/path/to/your/phpcs.xml",
+    "phpcs.standard": "/path/to/your/phpcs.xml",
     "phpcbf.documentFormattingProvider": true,
     "phpcbf.onsave": false,
     "phpcbf.executablePath":"PHPCBF_BIN_PATH",
