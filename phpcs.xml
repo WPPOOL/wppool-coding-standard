@@ -13,13 +13,6 @@
 	<exclude-pattern>*/node_modules/*</exclude-pattern>
 	<exclude-pattern>*/vendor/*</exclude-pattern>
 
-	<!-- Text-domain -->
-	<rule ref="WordPress.WP.I18n">
-		<properties>-
-			<property name="text_domain" type="array" value="wppool-plugin" />
-		</properties>
-	</rule>
-
 	<!-- 
 		####                   ####
 		#### No Need to Modify ####
