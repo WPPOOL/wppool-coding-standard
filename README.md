@@ -74,7 +74,7 @@ So
 
 ### Linux / MacOS
 ```bash
-phpcs --config-set installed_paths /Users/$USER/wpcs,/Users/$USER/PHPCompatibility
+phpcs --config-set installed_paths /home/$USER/wpcs,/home/$USER/PHPCompatibility
 ```
 
 ### Windows
