@@ -19,17 +19,7 @@ Follow all the steps one by one
 composer global require "squizlabs/php_codesniffer=*"
 ```
 
-[See other ways to install]((https://github.com/squizlabs/PHP_CodeSniffer))
-
-#### Run this command to verify installation.
-```bash
-phpcs -i
-```
-If it shows like this
-
-`The installed coding standards are PSR1, Zend, PEAR, PSR12, Squiz, MySource, PSR2`
-
-Means, you have installed PHP_CodeSniffer successfully.
+[See other ways to install](https://github.com/squizlabs/PHP_CodeSniffer)
 
 <br>
 
@@ -45,6 +35,9 @@ or run this to upgrade
 composer global update wp-coding-standards/wpcs --with-dependencies
 ```
 
+[See other ways to install](https://github.com/WordPress/WordPress-Coding-Standards)
+
+
 <br>
 
 ## (iii) Install PHPCompatibility
@@ -52,6 +45,10 @@ Run this command
 ```bash
 composer global require --dev phpcompatibility/php-compatibility
 ```
+
+
+[See other ways to install](https://github.com/PHPCompatibility/PHPCompatibility)
+
 
 <br>
 
