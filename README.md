@@ -157,7 +157,7 @@ If you have installed PHP_CodeSniffer using composer, your default path should b
 <br>
 
 ## iii. Add RuleSet to your project
-1. Open your project in VSCode and copy the `phpcs.xml` file to root of your project.
+1. Open your project in VSCode and copy the `phpcs3.xml` file to root of your project as `phpcs.xml`
 2. Modify `Excludes` sections as you need
 3. Update `text-domain` value in **19** line
 4. [Optional] Add these commands to your project (package.json or composer.json)
@@ -190,7 +190,7 @@ phpcs . > report.txt
 # Use a Global RuleSet
 If you want to use phpcbf (php code beautifier) for VSCode or from CLI with WordPress Standard, you can follow this hacks.
 
-1. Copy `phpcs.xml` file to root of your machine (or somewhere you trust). 
+1. Copy `phpcs3.xml` file to root of your machine as `phpcs.xml` (or somewhere you trust). 
 2. Modify the VSCode Settings for a little bit
 ```json
 {
