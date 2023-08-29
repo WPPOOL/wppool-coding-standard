@@ -19,7 +19,8 @@
 	<file>.</file>
 
 	<!-- Exclude common patterns -->
-	<!-- <exclude-pattern>vendor/*</exclude-pattern>
+	<exclude-pattern>vendor/*</exclude-pattern>
+	<!-- 
 	<exclude-pattern>.git</exclude-pattern>
 	<exclude-pattern>.github</exclude-pattern>
 	<exclude-pattern>.wordpress-org</exclude-pattern> -->
