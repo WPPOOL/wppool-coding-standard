@@ -1,0 +1,29 @@
+name: Testing WPCS 3
+
+on:
+  push:
+    branches: [ master, develop ]
+
+jobs:
+  check-standard:
+    runs-on: ubuntu-22.04
+    
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v3
+    
+    - name: Install Dependencies
+      run: |
+        composer global require "squizlabs/php_codesniffer=*"
+        composer global config allow-plugins.dealerdirect/phpcodesniffer-composer-installer true
+        composer global require --dev wp-coding-standards/wpcs:"^3.0"
+        composer global require --dev phpcompatibility/php-compatibility
+  
+    - name: Configure Standards
+      run: |
+        rm -f phpcs.xml
+        wget -O phpcs.xml https://raw.githubusercontent.com/WPPOOL/wppool-coding-standard/main/phpcs3.xml
+    
+    - name: Run Tests
+      run: |
+        ~/.composer/vendor/bin/phpcs .
