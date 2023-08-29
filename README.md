@@ -157,7 +157,7 @@ If you have installed PHP_CodeSniffer using composer, your default path should b
 <br>
 
 ## iii. Add RuleSet to your project
-1. Open your project in VSCode and copy the `phpcs3.xml` file to root of your project as `phpcs.xml`
+1. Open your project in VSCode and copy the `phpcs3.xml` file to root of your project as `phpcs.xmlpu
 2. Modify `Excludes` sections as you need
 3. Update `text-domain` value in **19** line
 4. [Optional] Add these commands to your project (package.json or composer.json)
