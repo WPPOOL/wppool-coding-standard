@@ -7,26 +7,31 @@
 	<description>WPPOOL Coding Standard 3</description>
 
 	<!-- Setting text-domain  -->
-	<rule ref="WordPress.WP.I18n">
+<!-- 	<rule ref="WordPress.WP.I18n">
 		<properties>
 			<property name="text_domain" type="array">
 				<element value="wp-dark-mode"/>
 			</property>
 		</properties>
-	</rule>
+	</rule> -->
 
 	
 	<file>.</file>
 
 	<!-- Exclude common patterns -->
-	<exclude-pattern>vendor/*</exclude-pattern>
+	<!-- <exclude-pattern>vendor/*</exclude-pattern> -->
 	<!-- 
 	<exclude-pattern>.git</exclude-pattern>
 	<exclude-pattern>.github</exclude-pattern>
 	<exclude-pattern>.wordpress-org</exclude-pattern> -->
 
 	<!-- Exclude the Node Modules directory. -->
-	<!-- <exclude-pattern>node_modules/*</exclude-pattern> -->
+	<exclude-pattern>node_modules/*</exclude-pattern>
+	<exclude-pattern>src/*</exclude-pattern>
+	<exclude-pattern>.wordpress-org/*</exclude-pattern>
+	<exclude-pattern>.github/*</exclude-pattern>
+	<exclude-pattern>assets/*</exclude-pattern>
+	<exclude-pattern>languages/*</exclude-pattern>
 
 	<!-- BASIC Configuration -->
 	<arg name="extensions" value="php" />
@@ -49,6 +54,7 @@
 	<rule ref="Squiz.Classes.ValidClassName" /> <!-- Valid class name -->
 	<rule ref="Squiz.Classes.ClassFileName">
 		<exclude name="Squiz.Classes.ClassFileName.NoMatch" />
+        <exclude name="Squiz.Classes.ValidClassName.NotCamelCaps" />
 	</rule>
 	<!--
 	#############################################################################
@@ -62,9 +68,15 @@
 	<rule ref="Generic.WhiteSpace.DisallowTabIndent"> <!-- Allow tab indent  -->
 		<exclude name="Generic.WhiteSpace.DisallowTabIndent.TabsUsed" />
 	</rule>
-	<rule ref="Generic.Arrays.DisallowLongArraySyntax" /> <!-- Allow short array syntax  -->
-	<rule ref="Generic.Arrays.DisallowShortArraySyntax"> 
-		<exclude name="Generic.Arrays.DisallowShortArraySyntax.Found" />
+	<!-- <rule ref="Universal.Arrays.DisallowLongArraySyntax">  -->
+	<rule ref="Universal"> 
+		<exclude name="Universal.Arrays.DisallowShortArraySyntax" />
+        <exclude name="Universal.ControlStructures.DisallowLonelyIf.Found" />
+        <exclude name="Universal.Classes.RequireFinalClass.NonFinalClassFound" />
+        <exclude name="Universal.ControlStructures.IfElseDeclaration.NoNewLine" />
+        <exclude name="Universal.ControlStructures.DisallowAlternativeSyntax.FoundIfWithInlineHTML" />
+        <exclude name="Universal.Namespaces.EnforceCurlyBraceSyntax.Forbidden" />
+        <exclude name="Universal.Files.SeparateFunctionsFromOO.Mixed" />
 	</rule>
 	<rule ref="Generic.Functions.FunctionCallArgumentSpacing"> <!-- whitespace in function arguements  -->
 		<exclude
@@ -92,6 +104,7 @@
     <rule ref="WordPress-Extra" /> 
 	<rule ref="WordPress.Files.FileName"> <!-- exclude WordPress InvalidClassFileName  -->
 		<exclude name="WordPress.Files.FileName.InvalidClassFileName" />
+        <exclude name="WordPress.Files.FileName.NotHyphenatedLowercase" />
 	</rule>
 	<rule ref="WordPress.PHP.StrictInArray"> <!-- exclude WordPress.PHP.StrictInArray.FoundNonStrictFalse -->
 		<exclude name="WordPress.PHP.StrictInArray.FoundNonStrictFalse" />
