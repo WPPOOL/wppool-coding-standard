@@ -26,12 +26,12 @@
 	<exclude-pattern>.wordpress-org</exclude-pattern> -->
 
 	<!-- Exclude the Node Modules directory. -->
-	<exclude-pattern>node_modules/*</exclude-pattern>
+<!-- 	<exclude-pattern>node_modules/*</exclude-pattern>
 	<exclude-pattern>src/*</exclude-pattern>
 	<exclude-pattern>.wordpress-org/*</exclude-pattern>
 	<exclude-pattern>.github/*</exclude-pattern>
 	<exclude-pattern>assets/*</exclude-pattern>
-	<exclude-pattern>languages/*</exclude-pattern>
+	<exclude-pattern>languages/*</exclude-pattern> -->
 
 	<!-- BASIC Configuration -->
 	<arg name="extensions" value="php" />
