@@ -4,34 +4,14 @@
 	name="WordPress Coding Standard 3.0" 
 	xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/squizlabs/PHP_CodeSniffer/master/phpcs.xsd">
 
-	<description>WPPOOL Coding Standard 3</description>
+	<description>Coding Standard 3</description>
 
-	<!-- Setting text-domain  -->
-<!-- 	<rule ref="WordPress.WP.I18n">
-		<properties>
-			<property name="text_domain" type="array">
-				<element value="wp-dark-mode"/>
-			</property>
-		</properties>
-	</rule> -->
 
 	
 	<file>.</file>
 
 	<!-- Exclude common patterns -->
-	<exclude-pattern>vendor/*</exclude-pattern>
-	<!-- 
-	<exclude-pattern>.git</exclude-pattern>
-	<exclude-pattern>.github</exclude-pattern>
-	<exclude-pattern>.wordpress-org</exclude-pattern> -->
-
-	<!-- Exclude the Node Modules directory. -->
-<!-- 	<exclude-pattern>node_modules/*</exclude-pattern>
 	<exclude-pattern>src/*</exclude-pattern>
-	<exclude-pattern>.wordpress-org/*</exclude-pattern>
-	<exclude-pattern>.github/*</exclude-pattern>
-	<exclude-pattern>assets/*</exclude-pattern>
-	<exclude-pattern>languages/*</exclude-pattern> -->
 
 	<!-- BASIC Configuration -->
 	<arg name="extensions" value="php" />
@@ -47,26 +27,33 @@
 	#############################################################################
 	-->
 
-	<config name="testVersion" value="7.0-" />
+	<config name="testVersion" value="5.6-" />
 
-	<rule ref="Squiz.Commenting.FileComment.Missing" /> <!-- Missing file doc comment -->
 	<rule ref="Squiz.Classes.ClassFileName"  /> <!-- Class name doesn't match filename -->
 	<rule ref="Squiz.Classes.ValidClassName" /> <!-- Valid class name -->
 	<rule ref="Squiz.Classes.ClassFileName">
 		<exclude name="Squiz.Classes.ClassFileName.NoMatch" />
         <exclude name="Squiz.Classes.ValidClassName.NotCamelCaps" />
 	</rule>
+	<rule ref="Squiz.Commenting">
+		<exclude name="Squiz.Commenting"/>
+	</rule>
+	 <!-- Missing file doc comment -->
 	<!--
 	#############################################################################
 	GENERIC
 	#############################################################################
 	-->
+
+	<!-- PHPCompatibility -->
+	<rule ref="PHPCompatibility" />
 	
 	<rule ref="Generic.Commenting"/> <!-- Commenting -->
 	<rule ref="Generic.CodeAnalysis" /> <!-- Code analysis -->
 	<rule ref="Generic.WhiteSpace" /> <!-- spacing and indentation -->
 	<rule ref="Generic.WhiteSpace.DisallowTabIndent"> <!-- Allow tab indent  -->
 		<exclude name="Generic.WhiteSpace.DisallowTabIndent.TabsUsed" />
+		<exclude name="Generic.WhiteSpace.DisallowSpaceIndent.SpacesUsed" />
 	</rule>
 	<!-- <rule ref="Universal.Arrays.DisallowLongArraySyntax">  -->
 	<rule ref="Universal"> 
@@ -77,6 +64,7 @@
         <exclude name="Universal.ControlStructures.DisallowAlternativeSyntax.FoundIfWithInlineHTML" />
         <exclude name="Universal.Namespaces.EnforceCurlyBraceSyntax.Forbidden" />
         <exclude name="Universal.Files.SeparateFunctionsFromOO.Mixed" />
+        <exclude name="Universal.UseStatements.DisallowUseClass.FoundWithoutAlias" />
 	</rule>
 	<rule ref="Generic.Functions.FunctionCallArgumentSpacing"> <!-- whitespace in function arguements  -->
 		<exclude
