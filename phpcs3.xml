@@ -11,7 +11,8 @@
 	<file>.</file>
 
 	<!-- Exclude common patterns -->
-	<exclude-pattern>src/*</exclude-pattern>
+	<exclude-pattern>*/node_modules/*</exclude-pattern>
+	<exclude-pattern>*/vendor/*</exclude-pattern>
 
 	<!-- BASIC Configuration -->
 	<arg name="extensions" value="php" />
